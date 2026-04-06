@@ -1,0 +1,21 @@
+model:
+  name: cardiffnlp/twitter-roberta-base-sentiment
+  num_labels: 3
+  labels: [left, center, right]
+
+training:
+  epochs: 5
+  batch_size: 16
+  learning_rate: 2e-5
+  warmup_steps: 100
+  max_length: 512
+  weight_decay: 0.01
+
+data:
+  train: data/train.jsonl
+  val: data/val.jsonl
+  test: data/test.jsonl
+
+output:
+  checkpoint_dir: checkpoints/
+  save_every_n_epochs: 1
